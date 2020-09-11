@@ -1,0 +1,23 @@
+{
+  "name": "buildinglist",
+  "version": "1.0.0",
+  "description": "A work monitoring system for buildings",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "author": "dhagnere",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "*",
+    "express": "*",
+    "mongoose": "*",
+    "pug": "*",
+    "connect-flash": "*",
+    "express-messages": "*",
+    "express-sessions": "*",
+    "express-validator": "*",
+    "moment": "*"
+  }
+}
