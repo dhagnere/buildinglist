@@ -1,23 +1,23 @@
 {
-  "name": "buildinglist",
+  "name": "sportsblog",
   "version": "1.0.0",
-  "description": "A work monitoring system for buildings",
+  "description": "Simple sports blog app",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app"
   },
-  "author": "dhagnere",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "*",
-    "express": "*",
-    "mongoose": "*",
-    "pug": "*",
     "connect-flash": "*",
+    "express": "*",
     "express-messages": "*",
-    "express-sessions": "*",
+    "express-session": "*",
     "express-validator": "*",
-    "moment": "*"
+    "moment": "*",
+    "mongoose": "*",
+    "pug": "^2.0.0-beta6"
   }
 }
