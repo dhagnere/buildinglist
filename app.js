@@ -9,7 +9,7 @@ const port = 3000;
 const app = express();
 
 const index = require('./routes/index');
-const articles = require('./routes/articles');
+const articles = require('./routes/buildings);
 const categories= require('./routes/categories');
 const manage = require('./routes/manage');
 
