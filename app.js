@@ -9,8 +9,8 @@ const port = 3000;
 const app = express();
 
 const index = require('./routes/index');
-const articles = require('./routes/buildings);
-const categories= require('./routes/categories');
+const buildings = require('./routes/buildings');
+const categories = require('./routes/categories');
 const manage = require('./routes/manage');
 
 // View Setup
@@ -19,7 +19,9 @@ app.set('view engine', 'pug');
 
 // Body parser
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
@@ -32,28 +34,13 @@ app.use((req, res, next) => {
 });
 
 // Express validator
-app.use(expressValidator({
-  errorFormatter: (param, msg, value) => {
-      const namespace = param.split('.')
-      , root    = namespace.shift()
-      , formParam = root;
 
-    while(namespace.length) {
-      formParam += '[' + namespace.shift() + ']';
-    }
-    return {
-      param : formParam,
-      msg   : msg,
-      value : value
-    };
-  }
-}));
 
 app.use('/', index);
-app.use('/articles', articles);
 app.use('/categories', categories);
 app.use('/manage', manage);
+app.use('/buildings', buildings);
 
 app.listen(port, () => {
-  console.log('Server started on port '+port);
+  console.log('Server started on port ' + port);
 });

@@ -5,12 +5,12 @@ router.get('/', (req, res, next) => {
   res.send('MANAGE');
 });
 
-router.get('/articles/add', (req, res, next) => {
-  res.render('add_article', {title: 'Create Article'});
+router.get('/buildings/add', (req, res, next) => {
+  res.render('add_building', {title: 'Creation d\'une entité'});
 });
 
 router.get('/categories/add', (req, res, next) => {
-  res.render('add_category', {title: 'Create Category'});
+  res.render('add_category', {title: 'Creation d\'une catégorie'});
 });
 
 module.exports = router;

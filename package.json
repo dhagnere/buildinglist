@@ -1,7 +1,7 @@
 {
-  "name": "sportsblog",
+  "name": "building",
   "version": "1.0.0",
-  "description": "Simple sports blog app",
+  "description": "Simple building management App",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
