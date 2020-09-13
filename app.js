@@ -3,6 +3,13 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const expressValidator = require('express-validator');
+const mongoose = require('mongoose');
+
+//mongoose connect
+mongoose.connect('mongodb://localhost/buildingsDB');
+const db = mongoose.connection;
+
+
 // Port
 const port = 3000;
 // init app
