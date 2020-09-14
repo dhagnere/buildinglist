@@ -1,10 +1,11 @@
 extends layout
 
 block content
-  h1 #{title}
-  ul
-    each category, i in categories
-      li
-        a(href='/buildings/category/'+category._id) #{category.title}
+  .container
+    h1 #{title}
+    ul.list-group
+      each category, i in categories
+        li.list-group-item
+          a(href='/buildings/category/'+category._id) #{category.title}
 
   
