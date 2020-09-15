@@ -1,4 +1,19 @@
 extends layout
 
 block content
-  h1 #{title}
+  .container
+    .row
+      .col-md-9
+        h1 #{title}
+      .col-md-3
+      
+        a(class="btn btn-default create-btn" , href="/manage/buildings/add") Ajouter un bâtiment 
+    table(class='table table-striped')
+      tr
+        th Liste des batiments de la ville de Coudekerque-Branche
+        th
+      each building, i in buildings
+        tr
+          td #{building.title}
+          td
+            a.btn.btn-primary(class="btn btn-tiny btn-default" href='/manage/buildings/edit/'+building._id) Editer

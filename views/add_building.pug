@@ -1,4 +1,43 @@
 extends layout
 
 block content
-  h1 #{title}
+  .container
+    h1 #{title}
+      hr
+      br
+      form(method='post', action='/buildings/add')
+        .form-group
+          label Nom:
+          input.form-control(name='title', type='text')
+        .form-group
+          label Catégorie :
+          select.form-control(name='category')
+            each category , i in categories
+              option(value=category._id) #{category.title}
+        .form-group
+          label Adresse:
+          input.form-control(name='adress', type='text')
+        .form-group
+          label Code postal :
+          input.form-control(name='zip' ,type="text")
+        .form-group
+          label Commune :
+          input.form-control(name='town' ,type="text")
+        .form-group
+          label Energie :
+          input.form-control(name='energy' ,type="text")
+        .form-group
+          label Code PDL/PCE/COMPTEUR EAU :
+          input.form-control(name='pdl' ,type="text")
+                
+            
+            
+
+
+
+
+
+
+        input.btn.btn-primary(type='submit' , name='submit', value='Sauvegarder') 
+        a.btn.btn-default(href='/manage/buildings') Retour 
+        
