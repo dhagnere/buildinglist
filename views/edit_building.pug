@@ -1,4 +1,38 @@
 extends layout
 
 block content
-  h1 #{title}
+  .container
+    h1 #{title}
+      hr
+      br
+    form(method='post', action='/buildings/edit/'+building._id)
+      .form-group
+        label Nom:
+        input.form-control(name='title', type='text' , value=building.title)
+      .form-group
+        label Catégorie :
+        select.form-control(name='category')
+          each category , i in categories
+            if(category._id == building.category)
+              option(value=category._id , selected) #{category.title}
+            else
+               option(value=category._id) #{category.title}
+      .form-group
+        label Adresse:
+        input.form-control(name='adress', type='text', value=building.adress )
+      .form-group
+        label Code postal :
+        input.form-control(name='zip' ,type="text" , value=building.zip)
+      .form-group
+        label Commune :
+        input.form-control(name='town' ,type="text" , value=building.town)
+      .form-group
+        label Energie :
+        input.form-control(name='energy' ,type="text" , , value=building.energy)
+      .form-group
+        label Code PDL/PCE/COMPTEUR EAU :
+        input.form-control(name='pdl' ,type="text" , value=building.pdl)
+
+      input.btn.btn-primary(type='submit' , name='submit', value='Sauvegarder') 
+      a.btn.btn-default(href='/manage/buildings') Retour 
+      a.btn.btn-danger.delete-building.pull-right(href='/manage/buildings' , data-build-id=building._id) Effacer 

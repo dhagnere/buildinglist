@@ -4,17 +4,18 @@ const Buildings = require('../models/Buildings');
 const router = express.Router();
 
 
-
+//Show all buildings
 router.get('/buildings', (req, res, next) => {
   Buildings.getBuildings((err, buildings) => {
     if (err) {
       res.send(err);
     }res.render('manage_buildings', {
-    title: 'Gestion des bâtiments',
+    title: 'Liste des bâtiments ou entités de la ville de Coudekerque-Branche',
     buildings : buildings});
   });
 });
 
+//Show all categories
 router.get('/categories', (req, res, next) => {
   Category.getCategories((err, categories) => {
     if (err) {
@@ -27,6 +28,7 @@ router.get('/categories', (req, res, next) => {
   });
 });
 
+//Add a building including his category
 router.get('/buildings/add', (req, res, next) => {
   Category.getCategories((err, categories) => {
     if (err) {
@@ -43,10 +45,9 @@ router.get('/categories/add', (req, res, next) => {
   res.render('add_category', {title: 'Creation d\'une catégorie'});
 });
 
-router.get('/buildings/edit/:id', (req, res, next) => {
-  res.render('edit_building' , {title : 'Edition d\'un bâtiment'});
-});
 
+
+//Edit category Page - GET
 router.get('/categories/edit/:id', (req, res, next) => {
   Category.getCategoryById(req.params.id, (err, category) => {
     if (err) {
@@ -57,6 +58,21 @@ router.get('/categories/edit/:id', (req, res, next) => {
       category: category
     });
   });
-  
 });
+  //EDIT building Page - GET
+  router.get('/buildings/edit/:id', (req, res, next) => {
+    Buildings.getBuildingById(req.params.id, (err, building) => {
+      if (err) {
+        res.send(err);
+      }
+      Category.getCategories((err, categories) => {
+        res.render('edit_building', {
+          title: 'Edition d\'un batiment ou entité',
+          building: building,
+          categories: categories
+        });
+      });
+    });
+});
+
 module.exports = router;

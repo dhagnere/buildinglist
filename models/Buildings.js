@@ -5,6 +5,9 @@ const buildingSchema = mongoose.Schema({
   title: {
     type: String
   },
+  category: {
+    type: String
+  },
   adress: {
     type: String
   },
@@ -12,9 +15,6 @@ const buildingSchema = mongoose.Schema({
     type: String
   },
   town: {
-    type: String
-  },
-  category: {
     type: String
   },
   energy: {

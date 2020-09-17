@@ -11,9 +11,11 @@ block content
     table(class='table table-striped')
       tr
         th Liste des batiments de la ville de Coudekerque-Branche
+        th Date de création
         th
       each building, i in buildings
         tr
           td #{building.title}
+          td #{moment(building.created_at).fromNow()}
           td
             a.btn.btn-primary(class="btn btn-tiny btn-default" href='/manage/buildings/edit/'+building._id) Editer
